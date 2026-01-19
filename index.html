@@ -30,7 +30,6 @@
       min-height: 100vh;
     }
 
-    /* RESTORED LED ANIMATION */
     @keyframes ledFade {
       0% { border-color: var(--accent); box-shadow: 0 0 12px var(--accent-glow); }
       50% { border-color: #ffffff; box-shadow: 0 0 18px var(--glow-white); }
@@ -75,6 +74,19 @@
     .card-text { font-size: 0.95rem; color: #aaa; flex-grow: 1; margin-bottom: 1.5rem; }
     .card-footer { font-weight: 700; color: var(--accent); }
 
+    /* STYLES FOR WIDE PORTFOLIO CARDS */
+    .wide-grid { display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto; }
+    .wide-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+      padding: 1.5rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+      text-decoration: none; transition: 0.4s; backdrop-filter: blur(10px);
+    }
+    .wide-card:hover { border-color: var(--accent); transform: scale(1.02); background: rgba(255,255,255,0.03); }
+    .wide-card-info { text-align: left; }
+    .wide-card-label { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 4px; }
+    .wide-card-title { font-size: 1.2rem; color: #fff; font-weight: 600; }
+    .wide-card-link { color: var(--muted); font-size: 0.9rem; }
+
     .contact-box {
       background: #080808; border: 1px solid var(--border); border-radius: 30px;
       padding: 4rem 2rem; text-align: center; max-width: 700px; margin: 4rem auto;
@@ -103,7 +115,6 @@
     .rev-author { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
     .card-blank { border: 1px dashed #222; opacity: 0.6; animation: none; }
 
-    /* MODAL ANIMATIONS */
     #review-modal { 
         position: fixed; inset: 0; background: rgba(0,0,0,0.85); 
         display: flex; align-items: center; justify-content: center; 
@@ -135,8 +146,12 @@
 
     footer { text-align: center; padding: 4rem; opacity: 0.3; font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 2rem; }
     
-    /* Smooth Language Swap Class */
     .fade-out { opacity: 0; filter: blur(5px); }
+
+    @media (max-width: 600px) {
+      .wide-card { flex-direction: column; text-align: center; gap: 10px; }
+      .wide-card-info { text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -150,6 +165,29 @@
       <p class="subtitle" data-ru="Разработка • Кибербезопасность • Дизайн" data-en="Developer • Cyber Security • Designer">Разработка • Кибербезопасность • Дизайн</p>
       <a href="#contacts" class="cta" data-ru="СВЯЗАТЬСЯ" data-en="CONTACT ME">СВЯЗАТЬСЯ</a>
     </header>
+
+    <section id="portfolio-links">
+      <h2 data-ru="Прошлые работы" data-en="Past Creations">Прошлые работы</h2>
+      <div class="wide-grid">
+        
+        <a href="https://t.me/libertydev_bot" target="_blank" class="wide-card">
+          <div class="wide-card-info">
+            <div class="wide-card-label" data-ru="Telegram ИИ бот" data-en="Telegram AI bot">Telegram ИИ бот</div>
+            <div class="wide-card-title">libertydev_bot</div>
+          </div>
+          <div class="wide-card-link">t.me/libertydev_bot →</div>
+        </a>
+
+        <a href="https://true-liberty.shop" target="_blank" class="wide-card">
+          <div class="wide-card-info">
+            <div class="wide-card-label" data-ru="Веб-сайт" data-en="Website">Веб-сайт</div>
+            <div class="wide-card-title">true-liberty.shop</div>
+          </div>
+          <div class="wide-card-link">visit site →</div>
+        </a>
+
+      </div>
+    </section>
 
     <section id="services">
       <h2 data-ru="Мои услуги" data-en="Services">Мои услуги</h2>
@@ -170,8 +208,8 @@
         <h3 data-ru="!ТОЛЬКО В TELEGRAM!" data-en="!ONLY IN TELEGRAM!">!ТОЛЬКО В TELEGRAM!</h3>
         <p data-ru="Свяжитесь со мной или менеджером, чтобы задать вопросы или нанять меня." data-en="Contact me or manager to ask questions or hire me.">Свяжитесь со мной или менеджером, чтобы задать вопросы или нанять меня.</p>
         <div class="contact-links">
-          <a href="https://t.me/wwqpm"><span data-ru="менеджер" data-en="manager">менеджер</span> — @wwqpm</a>
-          <a href="https://t.me/offsecdev"><span data-ru="я" data-en="me">я</span> — @offsecdev</a>
+          <a href="https://t.me/wwqpm" target="_blank"><span data-ru="менеджер" data-en="manager">менеджер</span> — @wwqpm</a>
+          <a href="https://t.me/offsecdev" target="_blank"><span data-ru="я" data-en="me">я</span> — @offsecdev</a>
         </div>
       </div>
     </section>
@@ -202,7 +240,7 @@
     </div>
   </div>
 
-  <footer><p>© 2026 offended | <a href="https://t.me/offsecdev" style="color:var(--accent); text-decoration:none">@offsecdev</a></p></footer>
+  <footer><p>© 2026 offended | <a href="https://t.me/offsecdev" target="_blank" style="color:var(--accent); text-decoration:none">@offsecdev</a></p></footer>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
